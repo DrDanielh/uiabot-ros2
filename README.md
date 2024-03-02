@@ -1,3 +1,2 @@
-# uiabot
-
-by Dunder Mifflin, Inc.
+# UiAbot Documentation
+https://drdanielh.github.io/UiAbot
