@@ -1,0 +1,55 @@
+### ekf config file ###
+ekf_filter_node:
+    ros__parameters:
+        use_sim_time: false
+
+        
+# The frequency, in Hz, at which the filter will output a position estimate. Note that the filter will not begin
+# computation until it receives at least one message from one of the inputs. It will then run continuously at the
+# frequency specified here, regardless of whether it receives more measurements. Defaults to 30 if unspecified.
+        frequency: 30.0
+
+        two_d_mode: true
+
+# If you're having trouble, try setting this to true, and then echo the /diagnostics_agg topic to see if the node is
+# unhappy with any settings or data.
+        print_diagnostics: false
+        reset_on_time_jump: true
+        map_frame: map                   # Defaults to "map" if unspecified
+        odom_frame: odom           # Defaults to "odom" if unspecified
+        base_link_frame: base_link      # Defaults to "base_link" if unspecified
+        world_frame: odom          # Defaults to the value of odom_frame if unspecified
+
+        odom0: mechanical_odometry
+
+        odom0_config: [false, false, false,
+                       false, false, false,
+                       true, true, false,
+                       false, false, true,
+                       false, false, false]
+
+        #        [x_pos   , y_pos    , z_pos,
+        #         roll    , pitch    , yaw,
+        #         x_vel   , y_vel    , z_vel,
+        #         roll_vel, pitch_vel, yaw_vel,
+        #         x_accel , y_accel  , z_accel]
+
+        odom0_queue_size: 5
+
+        imu0: bno055/data # was: imu/transformed
+        imu0_config: [false, false, false,
+                      false,  false,  true,
+                      false, false, false,
+                      false,  false,  true,
+                      true,  false,  false]
+
+        #        [x_pos   , y_pos    , z_pos,
+        #         roll    , pitch    , yaw,
+        #         x_vel   , y_vel    , z_vel,
+        #         roll_vel, pitch_vel, yaw_vel,
+        #         x_accel , y_accel  , z_accel]
+        
+        imu0_relative: true
+        imu0_queue_size: 5
+
+        imu0_remove_gravitational_acceleration: false

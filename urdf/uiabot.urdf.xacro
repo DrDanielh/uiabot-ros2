@@ -1,0 +1,143 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="uiabot">
+
+  <!-- Properties -->
+  <xacro:property name="PI" value="3.1415926535897931"/>
+
+  <!-- Robot base link-->
+  <link name="base_link">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 ${-pi/2}" />
+      <geometry>
+        <mesh scale="1 1 1" filename="package://uiabot/urdf/meshes/uiabot.stl"/>
+      </geometry>
+      <material name="gray">
+        <color rgba=".2 .2 .2 1" />
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.45 0.3 0.08" />
+      </geometry>
+      <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
+    </collision>
+  </link>
+
+   <!-- Base footprint -->
+  <link name="base_footprint"/>
+
+  <!-- Base footprint to base link joint -->
+  <joint name="base_footprint_to_base_link" type="fixed">
+    <parent link="base_link"/>
+    <child link="base_footprint"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Left wheel link -->
+  <link name="left_wheel">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+      <geometry>
+        <mesh scale="1 1 1" filename="package://uiabot/urdf/meshes/wheel.stl"/>
+      </geometry>
+      <material name="gray">
+        <color rgba=".2 .2 .2 1" />
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <cylinder radius="0.055" length="0.048" />
+      </geometry>
+      <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
+    </collision>
+  </link>
+
+  <!-- Robot base to left wheel joint -->
+  <joint name="base_link_to_left_wheel" type="continuous">
+    <parent link="base_link"/>
+    <child link="left_wheel"/>
+    <origin xyz="0 0.195 0" rpy="${-pi/2} 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- Right wheel link -->
+  <link name="right_wheel">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 ${-pi/2} 0"/>
+      <geometry>
+        <mesh scale="1 1 1" filename="package://uiabot/urdf/meshes/wheel.stl"/>
+      </geometry>
+      <material name="gray">
+        <color rgba=".2 .2 .2 1" />
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" />
+      <geometry>
+        <cylinder radius="0.055" length="0.048" />
+      </geometry>
+      <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
+    </collision>
+  </link>
+
+  <!-- Robot base to right wheel joint -->
+  <joint name="base_link_to_right_wheel" type="continuous">
+    <origin xyz="0 -0.195 0" rpy="${-pi/2} 0 0"/>
+    <parent link="base_link"/>
+    <child link="right_wheel"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- IMU link -->
+  <link name="bno055">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.027 0.02 0.005" />
+      </geometry>
+      <material name="red">
+        <color rgba=".9 .0 .0 1" />
+      </material>
+    </visual>
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <box size="0.027 0.02 0.005" />
+      </geometry>
+      <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
+    </collision>
+  </link>
+
+  <!-- IMU joint -->
+  <joint name="base_link_to_imu" type="fixed">
+    <parent link="base_link"/>
+    <child link="bno055"/>
+    <origin xyz="-0.2525 -0.117 0.0395" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Lidar link -->
+  <link name="laser">
+
+    <collision>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.07" length="0.02" />
+      </geometry>
+      <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
+    </collision>
+  </link>
+
+  <!-- Lidar joint -->
+  <joint name="base_link_to_laser" type="fixed">
+    <parent link="base_link"/>
+    <child link="laser"/>
+    <origin xyz="-0.283 0.0 0.18" rpy="0 0 0"/>
+  </joint>
+
+</robot>
