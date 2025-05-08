@@ -49,7 +49,8 @@ def generate_launch_description():
     # Include BNO055 IMU launch description
     bno055_node = Node(package='bno055_i2c_ros2',
                         namespace=namespace,
-                        executable='bno055_i2c_ros2')
+                        executable='bno055_i2c_ros2',
+                        parameters=[{'frame_id': 'bno055'}])  # Set the frame_id explicitly
 
     # Include lidar launch description
     rplidar_node = Node(name='rplidar_composition',
@@ -72,6 +73,20 @@ def generate_launch_description():
                                       parameters=[{'robot_description': uiabot_urdf.toxml(),
                                                    'use_sim_time': False}])
     
+    # Add static transform publishers to connect frames
+    imu_to_bno055_transform = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments=['0', '0', '0', '0', '0', '0', 'imu', 'bno055']
+    )
+    
+    # Connect the two branches of the TF tree
+    world_to_odom_transform = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments=['0', '0', '0', '0', '0', '0', 'world', 'odom']
+    )
+    
     # Instantiate launch description
     ld = LaunchDescription()
 
@@ -83,5 +98,7 @@ def generate_launch_description():
     ld.add_action(robot_state_publisher_node)
     ld.add_action(bno055_node)
     ld.add_action(rplidar_node)
+    ld.add_action(imu_to_bno055_transform)
+    ld.add_action(world_to_odom_transform)
 
     return ld

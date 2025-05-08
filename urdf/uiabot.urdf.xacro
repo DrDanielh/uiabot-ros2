@@ -7,7 +7,7 @@
   <!-- Robot base link-->
   <link name="base_link">
     <visual>
-      <origin xyz="0.0 0.0 0.0" rpy="0 0 ${-pi/2}" />
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 ${-PI/2}" />
       <geometry>
         <mesh scale="1 1 1" filename="package://uiabot/urdf/meshes/uiabot.stl"/>
       </geometry>

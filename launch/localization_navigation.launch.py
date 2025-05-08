@@ -2,7 +2,7 @@
 # Author: Michel Scott
 
 # System imports
-from distutils.command.config import config
+#from distutils.command.config import config
 import os
 import sys
 import xacro
@@ -17,16 +17,14 @@ from launch_ros.substitutions import FindPackageShare
 from launch_ros.actions import Node
 
 def generate_launch_description():
-    
-    map_path = LaunchConfiguration('map_path')
-    map_path_arg = DeclareLaunchArgument('map_path', default_value="")
-    print(map_path)
-
-    # Parameters
-    namespace = ""
-
     # Instantiate logger
     logger = logging.getLogger('launch')
+    
+    # Define map path
+    map_path = LaunchConfiguration('map_path')
+    
+    # Parameters
+    namespace = ""
 
     # Uiabot package share
     uiabot_shared = FindPackageShare('uiabot').find('uiabot') 
@@ -52,13 +50,13 @@ def generate_launch_description():
                         executable='bno055_i2c_ros2')
 
     # Include EKF node to fuse odometry
-    ekf_params = os.path.join(uiabot_shared, "params/ekf_params.yaml")
+    ekf_params = os.path.join(uiabot_shared, "params", "ekf_params.yaml")
     ekf_node = Node(package='robot_localization',
                     namespace=namespace,
                     executable='ekf_node',
                     name='ekf_filter_node',
                     output='screen',
-                    parameters=[os.path.join(uiabot_shared, ekf_params)])
+                    parameters=[ekf_params])  # Added missing parenthesis here
 
     # Include lidar launch description
     rplidar_node = Node(name='rplidar_composition',
@@ -77,13 +75,13 @@ def generate_launch_description():
     nav2_params = os.path.join(uiabot_shared, "params/nav2_params.yaml")
     nav2_launch = IncludeLaunchDescription(
                                     PythonLaunchDescriptionSource(os.path.join(nav2_shared, 'launch', 'navigation_launch.py')),
-                                                                    launch_arguments={'use_sim_time': 'False',
-                                                                                      'params_file': nav2_params}.items())
+                                    launch_arguments={'use_sim_time': 'False',
+                                                      'params_file': nav2_params}.items())
     localization_launch = IncludeLaunchDescription(
                                 PythonLaunchDescriptionSource(os.path.join(nav2_shared, 'launch', 'localization_launch.py')),
-                                                              launch_arguments={'use_sim_time': 'False',
-                                                                                'map': map_path,
-                                                                                'params_file': nav2_params}.items())
+                                launch_arguments={'use_sim_time': 'False',
+                                                  'map': map_path,
+                                                  'params_file': nav2_params}.items())
 
     # Set up robot state publisher
     uiabot_xacro_path = 'urdf/uiabot.urdf.xacro'
@@ -94,6 +92,30 @@ def generate_launch_description():
                                       executable='robot_state_publisher',
                                       parameters=[{'robot_description': uiabot_urdf.toxml(),
                                                    'use_sim_time': False}])
+    
+    # Add static transform publishers to connect frames
+    imu_to_bno055_transform = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments=['0', '0', '0', '0', '0', '0', 'imu', 'bno055']
+    )
+    
+    # Connect the two branches of the TF tree
+    world_to_odom_transform = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments=['0', '0', '0', '0', '0', '0', 'world', 'odom']
+    )
+    
+    # Connect map frame to the TF tree
+    map_to_world_transform = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments=['0', '0', '0', '0', '0', '0', 'map', 'world']
+    )
+    
+    # Declare the map path argument
+    map_path_arg = DeclareLaunchArgument('map_path', default_value="")
     
     # Instantiate launch description
     ld = LaunchDescription()
@@ -109,6 +131,8 @@ def generate_launch_description():
     ld.add_action(rplidar_node)
     ld.add_action(nav2_launch)
     ld.add_action(localization_launch)
-
+    ld.add_action(imu_to_bno055_transform)
+    ld.add_action(world_to_odom_transform)
+    ld.add_action(map_to_world_transform)
 
     return ld
