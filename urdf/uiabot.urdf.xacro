@@ -38,7 +38,7 @@
   <!-- Left wheel link -->
   <link name="left_wheel">
     <visual>
-      <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+      <origin xyz="0 0 0" rpy="0 ${PI/2} 0" />
       <geometry>
         <mesh scale="1 1 1" filename="package://uiabot/urdf/meshes/wheel.stl"/>
       </geometry>
@@ -60,14 +60,14 @@
   <joint name="base_link_to_left_wheel" type="continuous">
     <parent link="base_link"/>
     <child link="left_wheel"/>
-    <origin xyz="0 0.195 0" rpy="${-pi/2} 0 0"/>
+    <origin xyz="0 0.195 0" rpy="${-PI/2} 0 0"/>
     <axis xyz="0 0 1"/>
   </joint>
 
   <!-- Right wheel link -->
   <link name="right_wheel">
     <visual>
-      <origin xyz="0 0 0" rpy="0 ${-pi/2} 0"/>
+      <origin xyz="0 0 0" rpy="0 ${-PI/2} 0"/>
       <geometry>
         <mesh scale="1 1 1" filename="package://uiabot/urdf/meshes/wheel.stl"/>
       </geometry>
@@ -87,7 +87,7 @@
 
   <!-- Robot base to right wheel joint -->
   <joint name="base_link_to_right_wheel" type="continuous">
-    <origin xyz="0 -0.195 0" rpy="${-pi/2} 0 0"/>
+    <origin xyz="0 -0.195 0" rpy="${-PI/2} 0 0"/>
     <parent link="base_link"/>
     <child link="right_wheel"/>
     <axis xyz="0 0 1"/>
@@ -118,7 +118,7 @@
   <joint name="base_link_to_imu" type="fixed">
     <parent link="base_link"/>
     <child link="bno055"/>
-    <origin xyz="-0.2525 -0.117 0.0395" rpy="0 0 0"/>
+    <origin xyz="-0.305 0 0.0695" rpy="0 0 0"/>
   </joint>
 
   <!-- Lidar link -->
@@ -137,7 +137,7 @@
   <joint name="base_link_to_laser" type="fixed">
     <parent link="base_link"/>
     <child link="laser"/>
-    <origin xyz="-0.283 0.0 0.18" rpy="0 0 0"/>
+    <origin xyz="-0.278 0.0 0.18" rpy="0 0 0"/>
   </joint>
 
 </robot>

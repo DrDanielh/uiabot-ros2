@@ -53,7 +53,7 @@ def generate_launch_description():
                     executable='ekf_node',
                     name='ekf_filter_node',
                     output='screen',
-                    parameters=[os.path.join(uiabot_shared, ekf_params)])
+                    parameters=[ekf_params])
 
     # Include lidar launch description
     rplidar_node = Node(name='rplidar_composition',
@@ -65,12 +65,18 @@ def generate_launch_description():
                             'serial_baudrate': 115200,
                             'frame_id': 'laser',
                             'inverted': False,
+			    'scan_frequency': 7.0,
                             'angle_compensate': True}])
 
     # Include slam launch description
     slam_shared = FindPackageShare('slam_toolbox').find('slam_toolbox')
     slam_launch = IncludeLaunchDescription(
-                                    PythonLaunchDescriptionSource(os.path.join(slam_shared, 'launch', 'online_async_launch.py')))
+    PythonLaunchDescriptionSource(os.path.join(slam_shared, 'launch', 'online_async_launch.py')),
+    # Add parameters here
+    launch_arguments={'slam_params_file': os.path.join(uiabot_shared, 'params', 'slam_toolbox.yaml'),
+		      'use_sim_time':'false' }.items()
+    )
+
 
     # Set up robot state publisher
     uiabot_xacro_path = 'urdf/uiabot.urdf.xacro'

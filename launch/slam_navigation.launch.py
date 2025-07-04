@@ -2,7 +2,6 @@
 # Author: Michel Scott
 
 # System imports
-#from distutils.command.config import config
 import os
 import sys
 import xacro
@@ -55,7 +54,7 @@ def generate_launch_description():
                     executable='ekf_node',
                     name='ekf_filter_node',
                     output='screen',
-                    parameters=[ekf_params])  # Added closing parenthesis here
+                    parameters=[ekf_params])
 
     # Include lidar launch description
     rplidar_node = Node(name='rplidar_composition',
@@ -81,6 +80,39 @@ def generate_launch_description():
                                     PythonLaunchDescriptionSource(os.path.join(nav2_shared, 'launch', 'navigation_launch.py')),
                                                                     launch_arguments={'use_sim_time': 'False',
                                                                                       'params_file': nav2_params}.items())
+    
+    # Include lifecycle manager for Nav2
+    lifecycle_manager_node = Node(
+        package='nav2_lifecycle_manager',
+        executable='lifecycle_manager',
+        name='lifecycle_manager_navigation',
+        output='screen',
+        parameters=[{'autostart': True},
+                    {'node_names': ['controller_server', 
+                                   'planner_server',
+                                   'recoveries_server', 
+                                   'bt_navigator',
+                                   'waypoint_follower']}]
+    )
+
+    # **Add Map Server Node**
+    map_server_node = Node(package='nav2_map_server',
+                           executable='map_server',
+                           name='map_server',
+                           output='screen',
+                           parameters=[{
+                               'yaml_filename': '/path/to/your/map.yaml'  # Update this path to your actual map file
+                           }])
+
+    # **Add AMCL Node**
+    amcl_node = Node(package='nav2_amcl',
+                     executable='amcl',
+                     name='amcl',
+                     output='screen',
+                     parameters=[{
+                         'use_sim_time': 'false',  # Or 'true' if you're using simulation time
+                         'scan_topic': 'scan'  # Update this to match your actual laser scan topic
+                     }])
 
     # Set up robot state publisher
     uiabot_xacro_path = 'urdf/uiabot.urdf.xacro'
@@ -106,5 +138,10 @@ def generate_launch_description():
     ld.add_action(rplidar_node)
     ld.add_action(nav2_launch)
     ld.add_action(slam_launch)
+    ld.add_action(lifecycle_manager_node)
+    
+    # **Add Map Server and AMCL nodes to the launch description**
+    ld.add_action(map_server_node)
+    ld.add_action(amcl_node)
 
     return ld

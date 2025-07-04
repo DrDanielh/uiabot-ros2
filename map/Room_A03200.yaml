@@ -1,0 +1,6 @@
+image: /home/jetson/uiabot_ws/src/uiabot-ros2/map/Room_A03200.pgm
+resolution: 0.050000
+origin: [-1,-1, 0.000000]
+negate: 0
+occupied_thresh: 0.65
+free_thresh: 0.196

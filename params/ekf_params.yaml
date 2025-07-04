@@ -38,10 +38,10 @@ ekf_filter_node:
 
         imu0: bno055/data # was: imu/transformed
         imu0_config: [false, false, false,
-                      true,  true,  true,
+                      false, false, true,
                       false, false, false,
-                      true,  true,  true,
-                      true,  true,  false]
+                      false, false, true,
+                      true, true, false]
 
         #        [x_pos   , y_pos    , z_pos,
         #         roll    , pitch    , yaw,
