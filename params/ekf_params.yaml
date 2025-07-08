@@ -37,9 +37,9 @@ ekf_filter_node:
         odom0_queue_size: 5
 
         imu0: bno055/data # was: imu/transformed
-        imu0_config: [false, false, false,
+        imu0_config: [true, true, false,
                       false, false, true,
-                      false, false, false,
+                      true, true, false,
                       false, false, true,
                       true, true, false]
 

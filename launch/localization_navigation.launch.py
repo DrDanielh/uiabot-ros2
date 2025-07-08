@@ -19,7 +19,7 @@ from launch_ros.actions import Node
 def generate_launch_description():
     
     map_path = LaunchConfiguration('map_path')
-    map_path_arg = DeclareLaunchArgument('map_path', default_value="")
+    map_path_arg = DeclareLaunchArgument('map_path')
     print(map_path)
 
     # Parameters
@@ -114,9 +114,10 @@ def generate_launch_description():
     ld.add_action(bno055_node)
     ld.add_action(ekf_node)
     ld.add_action(rplidar_node)
+    ld.add_action(map_to_odom_transform)
     ld.add_action(nav2_launch)
     ld.add_action(localization_launch)
-    ld.add_action(map_to_odom_transform)
+
 
 
     return ld
