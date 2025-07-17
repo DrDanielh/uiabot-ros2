@@ -2,7 +2,6 @@
 from distutils.command.config import config
 import os
 import sys
-import xacro
 import logging
 
 # Ros launch imports
@@ -37,15 +36,6 @@ def generate_launch_description():
                             namespace=namespace,
                             executable='odrive_ros2')
 
-    # Set up robot state publisher
-    uiabot_xacro_path = 'urdf/uiabot.urdf.xacro'
-    uiabot_xacro_abs_path = FindPackageShare('uiabot').find('uiabot') + '/' + uiabot_xacro_path
-    uiabot_urdf = xacro.process_file(uiabot_xacro_abs_path)
-    robot_state_publisher_node = Node(package='robot_state_publisher',
-                                      namespace=namespace,
-                                      executable='robot_state_publisher',
-                                      parameters=[{'robot_description': uiabot_urdf.toxml()}])
-    
     # Instantiate launch description
     ld = LaunchDescription()
 
@@ -53,6 +43,5 @@ def generate_launch_description():
     ld.add_action(control_node)
     ld.add_action(mechanical_odometry_node)
     ld.add_action(odrive_ros2_node)
-    ld.add_action(robot_state_publisher_node)
 
     return ld

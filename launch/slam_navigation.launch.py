@@ -1,6 +1,3 @@
-# Dunder Mifflin, Inc.
-# Author: Michel Scott
-
 # System imports
 #from distutils.command.config import config
 import os
