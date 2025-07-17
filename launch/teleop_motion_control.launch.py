@@ -26,11 +26,7 @@ def generate_launch_description():
     control_node = Node(package='uiabot',
                         namespace=namespace,
                         executable='control')
-    
-    mechanical_odometry_node = Node(package='uiabot',
-                                    namespace=namespace,
-                                    executable='mechanical_odometry')
-    
+
     # Include odrive_ros2 executable
     odrive_ros2_node = Node(package='odrive_ros2',
                             namespace=namespace,
@@ -41,7 +37,6 @@ def generate_launch_description():
 
     # Add nodes to launch description
     ld.add_action(control_node)
-    ld.add_action(mechanical_odometry_node)
     ld.add_action(odrive_ros2_node)
 
     return ld

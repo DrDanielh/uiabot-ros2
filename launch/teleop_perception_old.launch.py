@@ -27,6 +27,11 @@ def generate_launch_description():
     control_node = Node(package='uiabot',
                         namespace=namespace,
                         executable='control')
+    
+    mechanical_odometry_node = Node(package='uiabot',
+                                    namespace=namespace,
+                                    executable='mechanical_odometry',
+                                    parameters=[{'use_tf': True}])
 
     imu_tf_viz_node = Node(package='uiabot',
                            namespace=namespace,
@@ -65,15 +70,32 @@ def generate_launch_description():
                                       parameters=[{'robot_description': uiabot_urdf.toxml(),
                                                    'use_sim_time': False}])
     
+    # Add static transform publishers to connect frames
+   # imu_to_bno055_transform = Node(
+     #   package='tf2_ros',
+     #   executable='static_transform_publisher',
+     #   arguments=['0', '0', '0', '0', '0', '0', 'imu', 'bno055']
+    #)
+    
+    # Connect the two branches of the TF tree
+    world_to_odom_transform = Node(
+        package='tf2_ros',
+        executable='static_transform_publisher',
+        arguments=['0', '0', '0', '0', '0', '0', 'world', 'odom']
+    )
+    
     # Instantiate launch description
     ld = LaunchDescription()
 
     # Add nodes to launch description
     ld.add_action(control_node)
+    ld.add_action(mechanical_odometry_node)
     ld.add_action(imu_tf_viz_node)
     ld.add_action(odrive_ros2_node)
     ld.add_action(robot_state_publisher_node)
     ld.add_action(bno055_node)
     ld.add_action(rplidar_node)
+    #ld.add_action(imu_to_bno055_transform)
+    ld.add_action(world_to_odom_transform)
 
     return ld
