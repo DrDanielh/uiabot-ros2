@@ -32,13 +32,13 @@
   <joint name="base_footprint_to_base_link" type="fixed">
     <parent link="base_footprint"/>
     <child link="base_link"/>
-    <origin xyz="0 0 0.055" rpy="0 0 0"/>
+    <origin xyz="0.129 0 0.055" rpy="0 0 0"/>
   </joint>
 
   <!-- Left wheel link -->
   <link name="left_wheel">
     <visual>
-      <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <cylinder radius="0.055" length="0.048" />
       </geometry>
@@ -67,7 +67,7 @@
   <!-- Right wheel link -->
   <link name="right_wheel">
     <visual>
-      <origin xyz="0 0 0" rpy="0 ${pi/2} 0" />
+      <origin xyz="0 0 0" rpy="0 0 0" />
       <geometry>
         <cylinder radius="0.055" length="0.048" />
       </geometry>
@@ -137,35 +137,7 @@
   <joint name="base_link_to_laser" type="fixed">
     <parent link="base_link"/>
     <child link="laser"/>
-    <origin xyz="-0.269 0.0 0.18" rpy="0 0 0"/>
-  </joint>
-
-  <!-- Caster wheel link -->
-  <link name="caster_wheel">
-    <visual>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-        <sphere radius="0.02" />
-      </geometry>
-      <material name="gray">
-        <color rgba=".2 .2 .2 1" />
-      </material>
-    </visual>
-
-    <collision>
-      <origin xyz="0 0 0" rpy="0 0 0" />
-      <geometry>
-        <sphere radius="0.02" />
-      </geometry>
-      <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
-    </collision>
-  </link>
-
-  <!-- Caster wheel joint -->
-  <joint name="base_link_to_caster_wheel" type="fixed">
-    <parent link="base_link"/>
-    <child link="caster_wheel"/>
-    <origin xyz="-0.18 0.0 -0.035" rpy="0 0 0"/>
+    <origin xyz="-0.28 0.0 0.18" rpy="0 0 0"/>
   </joint>
 
 </robot>
