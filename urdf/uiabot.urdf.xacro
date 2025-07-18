@@ -7,13 +7,6 @@
      <!-- Base footprint -->
   <link name="base_footprint"/>
 
-  <!-- Base footprint to base link joint -->
-  <joint name="base_footprint_to_base_link" type="fixed">
-    <parent link="base_footprint"/>
-    <child link="base_link"/>
-    <origin xyz="0 0 0" rpy="0 0 0"/>
-  </joint>
-
   <!-- Robot base link-->
   <link name="base_link">
     <visual>
@@ -34,6 +27,13 @@
       <contact_coefficients mu="0" kp="1000.0" kd="1.0"/>
     </collision>
   </link>
+
+    <!-- Base footprint to base link joint -->
+  <joint name="base_footprint_to_base_link" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0 0 0.055;" rpy="0 0 0"/>
+  </joint>
 
   <!-- Left wheel link -->
   <link name="left_wheel">
@@ -60,7 +60,7 @@
   <joint name="base_link_to_left_wheel" type="continuous">
     <parent link="base_link"/>
     <child link="left_wheel"/>
-    <origin xyz="0 0.195 0" rpy="${-pi/2} 0 0"/>
+    <origin xyz="0.129 0.195 0" rpy="${-pi/2} 0 0"/>
     <axis xyz="0 0 1"/>
   </joint>
 
@@ -87,7 +87,7 @@
 
   <!-- Robot base to right wheel joint -->
   <joint name="base_link_to_right_wheel" type="continuous">
-    <origin xyz="0 -0.195 0" rpy="${-pi/2} 0 0"/>
+    <origin xyz="0.129 -0.195 0" rpy="${-pi/2} 0 0"/>
     <parent link="base_link"/>
     <child link="right_wheel"/>
     <axis xyz="0 0 1"/>
@@ -118,7 +118,7 @@
   <joint name="base_link_to_imu" type="fixed">
     <parent link="base_link"/>
     <child link="bno055"/>
-    <origin xyz="-0.2525 -0.117 0.0395" rpy="0 0 0"/>
+    <origin xyz="-0.17 0.0 0.06" rpy="0 0 0"/>
   </joint>
 
   <!-- Lidar link -->
@@ -137,7 +137,7 @@
   <joint name="base_link_to_laser" type="fixed">
     <parent link="base_link"/>
     <child link="laser"/>
-    <origin xyz="-0.283 0.0 0.18" rpy="0 0 0"/>
+    <origin xyz="-0.14 0.0 0.18" rpy="0 0 0"/>
   </joint>
 
 </robot>
