@@ -81,11 +81,29 @@ target_include_directories(
         $<INSTALL_INTERFACE:include>
 )
 
+# Add wheel_tf_publisher node
+add_executable(
+        wheel_tf_publisher
+        src/wheel_tf_publisher.cpp
+)
+ament_target_dependencies(
+        wheel_tf_publisher
+        rclcpp
+        std_msgs
+        sensor_msgs
+)
+target_include_directories(
+        wheel_tf_publisher PRIVATE
+        $<BUILD_INTERFACE:${CMAKE_CURRENT_SOURCE_DIR}/include>
+        $<INSTALL_INTERFACE:include>
+)
+
 # Install executables
 install(TARGETS
         control
         mechanical_odometry
         imu_tf_viz
+        wheel_tf_publisher
         DESTINATION lib/${PROJECT_NAME}
 )
 

@@ -1,0 +1,4 @@
+Invoking command in '/home/danielh/uiabot_ws/build/uiabot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/danielh/uiabot_ws/install/odrive_ros2:/opt/ros/humble /usr/bin/cmake --build /home/danielh/uiabot_ws/build/uiabot -- -j12 -l12
+Invoked command in '/home/danielh/uiabot_ws/build/uiabot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/danielh/uiabot_ws/install/odrive_ros2:/opt/ros/humble /usr/bin/cmake --build /home/danielh/uiabot_ws/build/uiabot -- -j12 -l12
+Invoking command in '/home/danielh/uiabot_ws/build/uiabot': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/danielh/uiabot_ws/install/odrive_ros2:/opt/ros/humble /usr/bin/cmake --install /home/danielh/uiabot_ws/build/uiabot
+Invoked command in '/home/danielh/uiabot_ws/build/uiabot' returned '0': CMAKE_PREFIX_PATH=${CMAKE_PREFIX_PATH}:/home/danielh/uiabot_ws/install/odrive_ros2:/opt/ros/humble /usr/bin/cmake --install /home/danielh/uiabot_ws/build/uiabot

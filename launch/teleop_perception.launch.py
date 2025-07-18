@@ -28,6 +28,10 @@ def generate_launch_description():
                         namespace=namespace,
                         executable='control')
 
+    wheel_tf_publisher_node = Node(package='uiabot',
+                                   namespace=namespace,
+                                   executable='wheel_tf_publisher')
+
     imu_tf_viz_node = Node(package='uiabot',
                            namespace=namespace,
                            executable='imu_tf_viz')
@@ -70,6 +74,7 @@ def generate_launch_description():
 
     # Add nodes to launch description
     ld.add_action(control_node)
+    ld.add_action(wheel_tf_publisher_node)
     ld.add_action(imu_tf_viz_node)
     ld.add_action(odrive_ros2_node)
     ld.add_action(robot_state_publisher_node)

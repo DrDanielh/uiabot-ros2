@@ -9,6 +9,7 @@
 #include <string>
 #include <vector>
 #include "rclcpp/rclcpp.hpp"
+#include "sensor_msgs/msg/joint_state.hpp"
 #include "std_msgs/msg/float32.hpp"
 #include "nav_msgs/msg/odometry.hpp"
 #include "tf2/LinearMath/Quaternion.h"
@@ -61,6 +62,10 @@ class MechanicalOdometry : public rclcpp::Node {
     */
     void PublishTf();
 
+    /*! \brief Publish joint states to robot state publisher.
+    *
+    */
+    void PublishJointStates();
 
     // Callback methods
 
@@ -96,15 +101,17 @@ class MechanicalOdometry : public rclcpp::Node {
 
     // Frames
     std::string odom_frame_ = "odom";
-    std::string robot_frame_ = "base_footprint";
+    std::string robot_frame_ = "base_link";
 
     // Topics
     std::string odometry_topic_ = "mechanical_odometry";
+    std::string joint_state_topic_ = "joint_states";
     std::string axis0_vel_topic_ = "axis0/vel";
     std::string axis1_vel_topic_ = "axis1/vel";
 
     // Publishers and subscribers
     rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odometry_publisher_;
+    rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr joint_state_publisher_;
     rclcpp::Subscription<std_msgs::msg::Float32>::SharedPtr axis0_vel_subscriber_;
     rclcpp::Subscription<std_msgs::msg::Float32>::SharedPtr axis1_vel_subscriber_;
 

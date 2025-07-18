@@ -1,0 +1,185 @@
+[0.000000] (-) TimerEvent: {}
+[0.000219] (uiabot) JobQueued: {'identifier': 'uiabot', 'dependencies': OrderedDict()}
+[0.000494] (uiabot) JobStarted: {'identifier': 'uiabot'}
+[0.005827] (uiabot) JobProgress: {'identifier': 'uiabot', 'progress': 'cmake'}
+[0.006214] (uiabot) JobProgress: {'identifier': 'uiabot', 'progress': 'build'}
+[0.006680] (uiabot) Command: {'cmd': ['/usr/bin/cmake', '--build', '/home/danielh/uiabot_ws/build/uiabot', '--', '-j12', '-l12'], 'cwd': '/home/danielh/uiabot_ws/build/uiabot', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'danielh'), ('CLAUDE_CODE_ENTRYPOINT', 'cli'), ('LC_TIME', 'nb_NO.UTF-8'), ('GIT_EDITOR', 'true'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/danielh/uiabot_ws/install/odrive_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/danielh'), ('CHROME_DESKTOP', 'code.desktop'), ('TERM_PROGRAM_VERSION', '1.102.0'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/danielh/.nvm/versions/node/v22.17.1/bin'), ('NVM_INC', '/home/danielh/.nvm/versions/node/v22.17.1/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nb_NO.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '957'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '1298'), ('BUNDLED_DEBUGPY_PATH', '/home/danielh/.vscode/extensions/ms-python.debugpy-2025.10.0-linux-x64/bundled/libs/debugpy'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '16294'), ('NVM_DIR', '/home/danielh/.nvm'), ('COLCON_PREFIX_PATH', '/home/danielh/uiabot_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'danielh'), ('JOURNAL_STREAM', '8:16397'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('CLAUDE_CODE_SSE_PORT', '31888'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'danielh'), ('TERM', 'xterm-256color'), ('OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE', 'delta'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/danielh/.nvm/versions/node/v22.17.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/danielh/.vscode/extensions/ms-python.debugpy-2025.10.0-linux-x64/bundled/scripts/noConfigScripts:/home/danielh/.config/Code/User/globalStorage/github.copilot-chat/debugCommand'), ('SESSION_MANAGER', 'local/ubunt22:@/tmp/.ICE-unix/1271,unix/ubunt22:/tmp/.ICE-unix/1271'), ('INVOCATION_ID', 'c667b7216ed4456dbdde6c5334a99899'), ('COREPACK_ENABLE_AUTO_PIN', '0'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'nb_NO.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/danielh/.vscode/extensions/ms-python.debugpy-2025.10.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-b17a5786c20d661f.txt'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'nb_NO.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-b83f7d3d95.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '5'), ('AMENT_PREFIX_PATH', '/home/danielh/uiabot_ws/install/uiabot:/home/danielh/uiabot_ws/install/odrive_ros2:/home/danielh/uiabot_ws/install/odrive_interfaces:/home/danielh/uiabot_ws/install/bno055_i2c_ros2:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nb_NO.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('CLAUDECODE', '1'), ('LC_MEASUREMENT', 'nb_NO.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'nb_NO.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/danielh/uiabot_ws/build/uiabot'), ('ENABLE_IDE_INTEGRATION', 'true'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/danielh/uiabot_ws/install/odrive_ros2/lib/python3.10/site-packages:/home/danielh/uiabot_ws/install/odrive_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'nb_NO.UTF-8'), ('LC_PAPER', 'nb_NO.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/danielh/uiabot_ws/install/uiabot:/home/danielh/uiabot_ws/install/odrive_interfaces:/home/danielh/uiabot_ws/install/bno055_i2c_ros2:/home/danielh/uiabot_ws/install/odrive_ros2:/opt/ros/humble')]), 'shell': False}
+[0.026521] (uiabot) StdoutLine: {'line': b'-- Found ament_cmake: 1.3.11 (/opt/ros/humble/share/ament_cmake/cmake)\n'}
+[0.100011] (-) TimerEvent: {}
+[0.129609] (uiabot) StdoutLine: {'line': b'-- Found rclcpp: 16.0.12 (/opt/ros/humble/share/rclcpp/cmake)\n'}
+[0.156937] (uiabot) StdoutLine: {'line': b'-- Found rosidl_generator_c: 3.1.6 (/opt/ros/humble/share/rosidl_generator_c/cmake)\n'}
+[0.159264] (uiabot) StdoutLine: {'line': b'-- Found rosidl_adapter: 3.1.6 (/opt/ros/humble/share/rosidl_adapter/cmake)\n'}
+[0.165161] (uiabot) StdoutLine: {'line': b'-- Found rosidl_generator_cpp: 3.1.6 (/opt/ros/humble/share/rosidl_generator_cpp/cmake)\n'}
+[0.174118] (uiabot) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_c: rosidl_typesupport_fastrtps_c;rosidl_typesupport_introspection_c\n'}
+[0.186589] (uiabot) StdoutLine: {'line': b'-- Using all available rosidl_typesupport_cpp: rosidl_typesupport_fastrtps_cpp;rosidl_typesupport_introspection_cpp\n'}
+[0.200096] (-) TimerEvent: {}
+[0.217850] (uiabot) StdoutLine: {'line': b'-- Found rmw_implementation_cmake: 6.1.2 (/opt/ros/humble/share/rmw_implementation_cmake/cmake)\n'}
+[0.219393] (uiabot) StdoutLine: {'line': b'-- Found rmw_fastrtps_cpp: 6.2.7 (/opt/ros/humble/share/rmw_fastrtps_cpp/cmake)\n'}
+[0.300181] (-) TimerEvent: {}
+[0.301180] (uiabot) StdoutLine: {'line': b"-- Using RMW implementation 'rmw_fastrtps_cpp' as default\n"}
+[0.346637] (uiabot) StdoutLine: {'line': b'-- Found geometry_msgs: 4.9.0 (/opt/ros/humble/share/geometry_msgs/cmake)\n'}
+[0.357949] (uiabot) StdoutLine: {'line': b'-- Found sensor_msgs: 4.9.0 (/opt/ros/humble/share/sensor_msgs/cmake)\n'}
+[0.373149] (uiabot) StdoutLine: {'line': b'-- Found nav_msgs: 4.9.0 (/opt/ros/humble/share/nav_msgs/cmake)\n'}
+[0.387825] (uiabot) StdoutLine: {'line': b'-- Found odrive_interfaces: 0.1.0 (/home/danielh/uiabot_ws/install/odrive_interfaces/share/odrive_interfaces/cmake)\n'}
+[0.397173] (uiabot) StdoutLine: {'line': b'-- Found tf2: 0.25.13 (/opt/ros/humble/share/tf2/cmake)\n'}
+[0.400249] (-) TimerEvent: {}
+[0.401052] (uiabot) StdoutLine: {'line': b'-- Found tf2_ros: 0.25.13 (/opt/ros/humble/share/tf2_ros/cmake)\n'}
+[0.475672] (uiabot) StdoutLine: {'line': b'-- Found urdf: 2.6.1 (/opt/ros/humble/share/urdf/cmake)\n'}
+[0.500344] (-) TimerEvent: {}
+[0.546122] (uiabot) StdoutLine: {'line': b'-- Configuring done\n'}
+[0.563015] (uiabot) StdoutLine: {'line': b'-- Generating done\n'}
+[0.569385] (uiabot) StdoutLine: {'line': b'-- Build files have been written to: /home/danielh/uiabot_ws/build/uiabot\n'}
+[0.589649] (uiabot) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target imu_tf_viz\n'}
+[0.589906] (uiabot) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target control\n'}
+[0.590005] (uiabot) StdoutLine: {'line': b'Consolidate compiler generated dependencies of target mechanical_odometry\n'}
+[0.594180] (uiabot) StdoutLine: {'line': b'[ 12%] Building CXX object CMakeFiles/wheel_tf_publisher.dir/src/wheel_tf_publisher.cpp.o\n'}
+[0.598882] (uiabot) StdoutLine: {'line': b'[ 50%] Building CXX object CMakeFiles/imu_tf_viz.dir/src/imu_tf_viz.cpp.o\n'}
+[0.598998] (uiabot) StdoutLine: {'line': b'[ 50%] Building CXX object CMakeFiles/mechanical_odometry.dir/src/mechanical_odometry.cpp.o\n'}
+[0.599049] (uiabot) StdoutLine: {'line': b'[ 62%] Built target control\n'}
+[0.600404] (-) TimerEvent: {}
+[0.700534] (-) TimerEvent: {}
+[0.800708] (-) TimerEvent: {}
+[0.900891] (-) TimerEvent: {}
+[1.001071] (-) TimerEvent: {}
+[1.101247] (-) TimerEvent: {}
+[1.201424] (-) TimerEvent: {}
+[1.301604] (-) TimerEvent: {}
+[1.401784] (-) TimerEvent: {}
+[1.501963] (-) TimerEvent: {}
+[1.602141] (-) TimerEvent: {}
+[1.702324] (-) TimerEvent: {}
+[1.802506] (-) TimerEvent: {}
+[1.902686] (-) TimerEvent: {}
+[2.002876] (-) TimerEvent: {}
+[2.103058] (-) TimerEvent: {}
+[2.203236] (-) TimerEvent: {}
+[2.303416] (-) TimerEvent: {}
+[2.403597] (-) TimerEvent: {}
+[2.503782] (-) TimerEvent: {}
+[2.603966] (-) TimerEvent: {}
+[2.704142] (-) TimerEvent: {}
+[2.804321] (-) TimerEvent: {}
+[2.904494] (-) TimerEvent: {}
+[3.004645] (-) TimerEvent: {}
+[3.104792] (-) TimerEvent: {}
+[3.204952] (-) TimerEvent: {}
+[3.305103] (-) TimerEvent: {}
+[3.405254] (-) TimerEvent: {}
+[3.505400] (-) TimerEvent: {}
+[3.605579] (-) TimerEvent: {}
+[3.705726] (-) TimerEvent: {}
+[3.805908] (-) TimerEvent: {}
+[3.906056] (-) TimerEvent: {}
+[4.006208] (-) TimerEvent: {}
+[4.106397] (-) TimerEvent: {}
+[4.206548] (-) TimerEvent: {}
+[4.306705] (-) TimerEvent: {}
+[4.406881] (-) TimerEvent: {}
+[4.507033] (-) TimerEvent: {}
+[4.607181] (-) TimerEvent: {}
+[4.707361] (-) TimerEvent: {}
+[4.807519] (-) TimerEvent: {}
+[4.907665] (-) TimerEvent: {}
+[5.007822] (-) TimerEvent: {}
+[5.107989] (-) TimerEvent: {}
+[5.208132] (-) TimerEvent: {}
+[5.308273] (-) TimerEvent: {}
+[5.408412] (-) TimerEvent: {}
+[5.508564] (-) TimerEvent: {}
+[5.608720] (-) TimerEvent: {}
+[5.708874] (-) TimerEvent: {}
+[5.809020] (-) TimerEvent: {}
+[5.909156] (-) TimerEvent: {}
+[6.009304] (-) TimerEvent: {}
+[6.109466] (-) TimerEvent: {}
+[6.209637] (-) TimerEvent: {}
+[6.309780] (-) TimerEvent: {}
+[6.409893] (-) TimerEvent: {}
+[6.510034] (-) TimerEvent: {}
+[6.610184] (-) TimerEvent: {}
+[6.710334] (-) TimerEvent: {}
+[6.810473] (-) TimerEvent: {}
+[6.910641] (-) TimerEvent: {}
+[7.010813] (-) TimerEvent: {}
+[7.110972] (-) TimerEvent: {}
+[7.117352] (uiabot) StdoutLine: {'line': b'[ 75%] Linking CXX executable imu_tf_viz\n'}
+[7.211070] (-) TimerEvent: {}
+[7.311228] (-) TimerEvent: {}
+[7.356409] (uiabot) StdoutLine: {'line': b'[ 87%] Linking CXX executable wheel_tf_publisher\n'}
+[7.411332] (-) TimerEvent: {}
+[7.454445] (uiabot) StdoutLine: {'line': b'[ 87%] Built target imu_tf_viz\n'}
+[7.479988] (uiabot) StdoutLine: {'line': b'[100%] Linking CXX executable mechanical_odometry\n'}
+[7.511425] (-) TimerEvent: {}
+[7.611616] (-) TimerEvent: {}
+[7.668832] (uiabot) StdoutLine: {'line': b'[100%] Built target wheel_tf_publisher\n'}
+[7.711734] (-) TimerEvent: {}
+[7.805056] (uiabot) StdoutLine: {'line': b'[100%] Built target mechanical_odometry\n'}
+[7.811886] (-) TimerEvent: {}
+[7.812342] (uiabot) CommandEnded: {'returncode': 0}
+[7.812842] (uiabot) JobProgress: {'identifier': 'uiabot', 'progress': 'install'}
+[7.818475] (uiabot) Command: {'cmd': ['/usr/bin/cmake', '--install', '/home/danielh/uiabot_ws/build/uiabot'], 'cwd': '/home/danielh/uiabot_ws/build/uiabot', 'env': OrderedDict([('GJS_DEBUG_TOPICS', 'JS ERROR;JS LOG'), ('PYTHON_BASIC_REPL', '1'), ('LESSOPEN', '| /usr/bin/lesspipe %s'), ('USER', 'danielh'), ('CLAUDE_CODE_ENTRYPOINT', 'cli'), ('LC_TIME', 'nb_NO.UTF-8'), ('GIT_EDITOR', 'true'), ('XDG_SESSION_TYPE', 'x11'), ('GIT_ASKPASS', '/usr/share/code/resources/app/extensions/git/dist/askpass.sh'), ('SHLVL', '2'), ('LD_LIBRARY_PATH', '/home/danielh/uiabot_ws/install/odrive_interfaces/lib:/opt/ros/humble/opt/rviz_ogre_vendor/lib:/opt/ros/humble/lib/x86_64-linux-gnu:/opt/ros/humble/lib'), ('HOME', '/home/danielh'), ('CHROME_DESKTOP', 'code.desktop'), ('TERM_PROGRAM_VERSION', '1.102.0'), ('DESKTOP_SESSION', 'ubuntu'), ('NVM_BIN', '/home/danielh/.nvm/versions/node/v22.17.1/bin'), ('NVM_INC', '/home/danielh/.nvm/versions/node/v22.17.1/include/node'), ('GIO_LAUNCHED_DESKTOP_FILE', '/usr/share/applications/code.desktop'), ('ROS_PYTHON_VERSION', '3'), ('GNOME_SHELL_SESSION_MODE', 'ubuntu'), ('GTK_MODULES', 'gail:atk-bridge'), ('VSCODE_GIT_ASKPASS_MAIN', '/usr/share/code/resources/app/extensions/git/dist/askpass-main.js'), ('LC_MONETARY', 'nb_NO.UTF-8'), ('VSCODE_GIT_ASKPASS_NODE', '/usr/share/code/code'), ('MANAGERPID', '957'), ('PYDEVD_DISABLE_FILE_VALIDATION', '1'), ('SYSTEMD_EXEC_PID', '1298'), ('BUNDLED_DEBUGPY_PATH', '/home/danielh/.vscode/extensions/ms-python.debugpy-2025.10.0-linux-x64/bundled/libs/debugpy'), ('DBUS_SESSION_BUS_ADDRESS', 'unix:path=/run/user/1000/bus'), ('COLORTERM', 'truecolor'), ('GIO_LAUNCHED_DESKTOP_FILE_PID', '16294'), ('NVM_DIR', '/home/danielh/.nvm'), ('COLCON_PREFIX_PATH', '/home/danielh/uiabot_ws/install'), ('ROS_DISTRO', 'humble'), ('GTK_IM_MODULE', 'ibus'), ('LOGNAME', 'danielh'), ('JOURNAL_STREAM', '8:16397'), ('_', '/usr/bin/colcon'), ('ROS_VERSION', '2'), ('CLAUDE_CODE_SSE_PORT', '31888'), ('XDG_SESSION_CLASS', 'user'), ('USERNAME', 'danielh'), ('TERM', 'xterm-256color'), ('OTEL_EXPORTER_OTLP_METRICS_TEMPORALITY_PREFERENCE', 'delta'), ('GNOME_DESKTOP_SESSION_ID', 'this-is-deprecated'), ('ROS_LOCALHOST_ONLY', '0'), ('WINDOWPATH', '2'), ('PATH', '/opt/ros/humble/bin:/home/danielh/.nvm/versions/node/v22.17.1/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games:/snap/bin:/snap/bin:/home/danielh/.vscode/extensions/ms-python.debugpy-2025.10.0-linux-x64/bundled/scripts/noConfigScripts:/home/danielh/.config/Code/User/globalStorage/github.copilot-chat/debugCommand'), ('SESSION_MANAGER', 'local/ubunt22:@/tmp/.ICE-unix/1271,unix/ubunt22:/tmp/.ICE-unix/1271'), ('INVOCATION_ID', 'c667b7216ed4456dbdde6c5334a99899'), ('COREPACK_ENABLE_AUTO_PIN', '0'), ('XDG_MENU_PREFIX', 'gnome-'), ('LC_ADDRESS', 'nb_NO.UTF-8'), ('XDG_RUNTIME_DIR', '/run/user/1000'), ('GDK_BACKEND', 'x11'), ('DISPLAY', ':0'), ('VSCODE_DEBUGPY_ADAPTER_ENDPOINTS', '/home/danielh/.vscode/extensions/ms-python.debugpy-2025.10.0-linux-x64/.noConfigDebugAdapterEndpoints/endpoint-b17a5786c20d661f.txt'), ('LANG', 'en_US.UTF-8'), ('XDG_CURRENT_DESKTOP', 'Unity'), ('LC_TELEPHONE', 'nb_NO.UTF-8'), ('XMODIFIERS', '@im=ibus'), ('XDG_SESSION_DESKTOP', 'ubuntu'), ('XAUTHORITY', '/run/user/1000/gdm/Xauthority'), ('LS_COLORS', 'rs=0:di=01;34:ln=01;36:mh=00:pi=40;33:so=01;35:do=01;35:bd=40;33;01:cd=40;33;01:or=40;31;01:mi=00:su=37;41:sg=30;43:ca=30;41:tw=30;42:ow=34;42:st=37;44:ex=01;32:*.tar=01;31:*.tgz=01;31:*.arc=01;31:*.arj=01;31:*.taz=01;31:*.lha=01;31:*.lz4=01;31:*.lzh=01;31:*.lzma=01;31:*.tlz=01;31:*.txz=01;31:*.tzo=01;31:*.t7z=01;31:*.zip=01;31:*.z=01;31:*.dz=01;31:*.gz=01;31:*.lrz=01;31:*.lz=01;31:*.lzo=01;31:*.xz=01;31:*.zst=01;31:*.tzst=01;31:*.bz2=01;31:*.bz=01;31:*.tbz=01;31:*.tbz2=01;31:*.tz=01;31:*.deb=01;31:*.rpm=01;31:*.jar=01;31:*.war=01;31:*.ear=01;31:*.sar=01;31:*.rar=01;31:*.alz=01;31:*.ace=01;31:*.zoo=01;31:*.cpio=01;31:*.7z=01;31:*.rz=01;31:*.cab=01;31:*.wim=01;31:*.swm=01;31:*.dwm=01;31:*.esd=01;31:*.jpg=01;35:*.jpeg=01;35:*.mjpg=01;35:*.mjpeg=01;35:*.gif=01;35:*.bmp=01;35:*.pbm=01;35:*.pgm=01;35:*.ppm=01;35:*.tga=01;35:*.xbm=01;35:*.xpm=01;35:*.tif=01;35:*.tiff=01;35:*.png=01;35:*.svg=01;35:*.svgz=01;35:*.mng=01;35:*.pcx=01;35:*.mov=01;35:*.mpg=01;35:*.mpeg=01;35:*.m2v=01;35:*.mkv=01;35:*.webm=01;35:*.webp=01;35:*.ogm=01;35:*.mp4=01;35:*.m4v=01;35:*.mp4v=01;35:*.vob=01;35:*.qt=01;35:*.nuv=01;35:*.wmv=01;35:*.asf=01;35:*.rm=01;35:*.rmvb=01;35:*.flc=01;35:*.avi=01;35:*.fli=01;35:*.flv=01;35:*.gl=01;35:*.dl=01;35:*.xcf=01;35:*.xwd=01;35:*.yuv=01;35:*.cgm=01;35:*.emf=01;35:*.ogv=01;35:*.ogx=01;35:*.aac=00;36:*.au=00;36:*.flac=00;36:*.m4a=00;36:*.mid=00;36:*.midi=00;36:*.mka=00;36:*.mp3=00;36:*.mpc=00;36:*.ogg=00;36:*.ra=00;36:*.wav=00;36:*.oga=00;36:*.opus=00;36:*.spx=00;36:*.xspf=00;36:'), ('VSCODE_GIT_IPC_HANDLE', '/run/user/1000/vscode-git-b83f7d3d95.sock'), ('TERM_PROGRAM', 'vscode'), ('SSH_AGENT_LAUNCHER', 'gnome-keyring'), ('SSH_AUTH_SOCK', '/run/user/1000/keyring/ssh'), ('ROS_DOMAIN_ID', '5'), ('AMENT_PREFIX_PATH', '/home/danielh/uiabot_ws/install/uiabot:/home/danielh/uiabot_ws/install/odrive_ros2:/home/danielh/uiabot_ws/install/odrive_interfaces:/home/danielh/uiabot_ws/install/bno055_i2c_ros2:/opt/ros/humble'), ('ORIGINAL_XDG_CURRENT_DESKTOP', 'ubuntu:GNOME'), ('SHELL', '/bin/bash'), ('LC_NAME', 'nb_NO.UTF-8'), ('QT_ACCESSIBILITY', '1'), ('GDMSESSION', 'ubuntu'), ('LESSCLOSE', '/usr/bin/lesspipe %s %s'), ('CLAUDECODE', '1'), ('LC_MEASUREMENT', 'nb_NO.UTF-8'), ('GPG_AGENT_INFO', '/run/user/1000/gnupg/S.gpg-agent:0:1'), ('GJS_DEBUG_OUTPUT', 'stderr'), ('LC_IDENTIFICATION', 'nb_NO.UTF-8'), ('VSCODE_GIT_ASKPASS_EXTRA_ARGS', ''), ('QT_IM_MODULE', 'ibus'), ('PWD', '/home/danielh/uiabot_ws/build/uiabot'), ('ENABLE_IDE_INTEGRATION', 'true'), ('LC_ALL', 'en_US.UTF-8'), ('XDG_CONFIG_DIRS', '/etc/xdg/xdg-ubuntu:/etc/xdg'), ('NVM_CD_FLAGS', ''), ('XDG_DATA_DIRS', '/usr/share/ubuntu:/usr/share/gnome:/usr/local/share/:/usr/share/:/var/lib/snapd/desktop'), ('PYTHONPATH', '/home/danielh/uiabot_ws/install/odrive_ros2/lib/python3.10/site-packages:/home/danielh/uiabot_ws/install/odrive_interfaces/local/lib/python3.10/dist-packages:/opt/ros/humble/lib/python3.10/site-packages:/opt/ros/humble/local/lib/python3.10/dist-packages'), ('LC_NUMERIC', 'nb_NO.UTF-8'), ('LC_PAPER', 'nb_NO.UTF-8'), ('COLCON', '1'), ('CMAKE_PREFIX_PATH', '/home/danielh/uiabot_ws/install/uiabot:/home/danielh/uiabot_ws/install/odrive_interfaces:/home/danielh/uiabot_ws/install/bno055_i2c_ros2:/home/danielh/uiabot_ws/install/odrive_ros2:/opt/ros/humble')]), 'shell': False}
+[7.823416] (uiabot) StdoutLine: {'line': b'-- Install configuration: ""\n'}
+[7.823600] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/lib/uiabot/control\n'}
+[7.823695] (uiabot) StdoutLine: {'line': b'-- Installing: /home/danielh/uiabot_ws/install/uiabot/lib/uiabot/mechanical_odometry\n'}
+[7.825741] (uiabot) StdoutLine: {'line': b'-- Set runtime path of "/home/danielh/uiabot_ws/install/uiabot/lib/uiabot/mechanical_odometry" to ""\n'}
+[7.825864] (uiabot) StdoutLine: {'line': b'-- Installing: /home/danielh/uiabot_ws/install/uiabot/lib/uiabot/imu_tf_viz\n'}
+[7.827640] (uiabot) StdoutLine: {'line': b'-- Set runtime path of "/home/danielh/uiabot_ws/install/uiabot/lib/uiabot/imu_tf_viz" to ""\n'}
+[7.827696] (uiabot) StdoutLine: {'line': b'-- Installing: /home/danielh/uiabot_ws/install/uiabot/lib/uiabot/wheel_tf_publisher\n'}
+[7.829513] (uiabot) StdoutLine: {'line': b'-- Set runtime path of "/home/danielh/uiabot_ws/install/uiabot/lib/uiabot/wheel_tf_publisher" to ""\n'}
+[7.829597] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/include\n'}
+[7.829639] (uiabot) StdoutLine: {'line': b'-- Installing: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/include/imu_tf_viz.h\n'}
+[7.829718] (uiabot) StdoutLine: {'line': b'-- Installing: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/include/mechanical_odometry_old.h\n'}
+[7.829760] (uiabot) StdoutLine: {'line': b'-- Installing: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/include/wheel_tf_publisher.h\n'}
+[7.829799] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/include/control.h\n'}
+[7.829838] (uiabot) StdoutLine: {'line': b'-- Installing: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/include/mechanical_odometry.h\n'}
+[7.830135] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/launch\n'}
+[7.830181] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/launch/localization_navigation.launch.py\n'}
+[7.830220] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/launch/slam_navigation.launch.py\n'}
+[7.830259] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/launch/teleop_slam.launch.py\n'}
+[7.830297] (uiabot) StdoutLine: {'line': b'-- Installing: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/launch/teleop_motion_control.launch.py\n'}
+[7.830335] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/launch/teleop.launch.py\n'}
+[7.830374] (uiabot) StdoutLine: {'line': b'-- Installing: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/launch/teleop_perception.launch.py\n'}
+[7.830413] (uiabot) StdoutLine: {'line': b'-- Installing: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/launch/teleop_perception_old.launch.py\n'}
+[7.830545] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/urdf\n'}
+[7.830585] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/urdf/meshes\n'}
+[7.830623] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/urdf/meshes/wheel_original.stl\n'}
+[7.830662] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/urdf/meshes/uiabot.blend1\n'}
+[7.830700] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/urdf/meshes/uiabot_base_original.stl\n'}
+[7.830739] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/urdf/meshes/uiabot.blend\n'}
+[7.830777] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/urdf/meshes/uiabot.stl\n'}
+[7.830814] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/urdf/meshes/wheel.blend\n'}
+[7.830879] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/urdf/meshes/uiabot.dae\n'}
+[7.831055] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/urdf/meshes/wheel.stl\n'}
+[7.831093] (uiabot) StdoutLine: {'line': b'-- Installing: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/urdf/uiabot.urdf.xacro\n'}
+[7.831129] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/params\n'}
+[7.831165] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/params/nav2_params.yaml\n'}
+[7.831201] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/params/ekf_params.yaml\n'}
+[7.831240] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/map\n'}
+[7.831276] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/map/demo.yaml\n'}
+[7.831312] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/map/map_mezzanine_2.pgm\n'}
+[7.831348] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/map/map_mezzanine_2.yaml\n'}
+[7.831383] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/map/test.yaml\n'}
+[7.831419] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/map/test.pgm\n'}
+[7.831454] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/map/map_mezzanine.yaml\n'}
+[7.831488] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/map/demo.pgm\n'}
+[7.831523] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/map/map_hallway_c2.pgm\n'}
+[7.831558] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/map/map_mezzanine.pgm\n'}
+[7.831593] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/map/map_hallway_c2.yaml\n'}
+[7.831629] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/ament_index/resource_index/package_run_dependencies/uiabot\n'}
+[7.831664] (uiabot) StdoutLine: {'line': b'-- Installing: /home/danielh/uiabot_ws/install/uiabot/share/ament_index/resource_index/parent_prefix_path/uiabot\n'}
+[7.831699] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/environment/ament_prefix_path.sh\n'}
+[7.831738] (uiabot) StdoutLine: {'line': b'-- Installing: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/environment/ament_prefix_path.dsv\n'}
+[7.831828] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/environment/path.sh\n'}
+[7.831992] (uiabot) StdoutLine: {'line': b'-- Installing: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/environment/path.dsv\n'}
+[7.832035] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/local_setup.bash\n'}
+[7.832074] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/local_setup.sh\n'}
+[7.832112] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/local_setup.zsh\n'}
+[7.832150] (uiabot) StdoutLine: {'line': b'-- Installing: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/local_setup.dsv\n'}
+[7.832189] (uiabot) StdoutLine: {'line': b'-- Installing: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/package.dsv\n'}
+[7.832227] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/ament_index/resource_index/packages/uiabot\n'}
+[7.832265] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/cmake/uiabotConfig.cmake\n'}
+[7.832303] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/cmake/uiabotConfig-version.cmake\n'}
+[7.832342] (uiabot) StdoutLine: {'line': b'-- Up-to-date: /home/danielh/uiabot_ws/install/uiabot/share/uiabot/package.xml\n'}
+[7.832554] (uiabot) CommandEnded: {'returncode': 0}
+[7.844100] (uiabot) JobEnded: {'identifier': 'uiabot', 'rc': 0}
+[7.844419] (-) EventReactorShutdown: {}
