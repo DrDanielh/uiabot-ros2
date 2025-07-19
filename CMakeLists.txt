@@ -113,6 +113,7 @@ install(DIRECTORY
         urdf
         params
         map
+        rviz
         DESTINATION share/${PROJECT_NAME}
 )
 
