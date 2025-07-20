@@ -1,0 +1,72 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro" name="uiabot_wheels">
+
+  <!-- Properties -->
+  <xacro:property name="PI" value="3.1415926535897931"/>
+
+  <!-- Base footprint -->
+  <link name="base_footprint"/>
+
+  <!-- Robot base link with mesh -->
+  <link name="base_link">
+    <visual>
+      <origin xyz="0.0 0.0 0.0" rpy="0 0 ${-PI/2}" />
+      <geometry>
+        <mesh scale="1 1 1" filename="package://uiabot/urdf/meshes/uiabot.dae"/>
+      </geometry>
+      <material name="gray">
+        <color rgba=".2 .2 .2 1" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- Base footprint to base link joint -->
+  <joint name="base_footprint_to_base_link" type="fixed">
+    <parent link="base_footprint"/>
+    <child link="base_link"/>
+    <origin xyz="0.129 0 0.055" rpy="0 0 0"/>
+  </joint>
+
+  <!-- Left wheel link -->
+  <link name="left_wheel">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.055" length="0.048" />
+      </geometry>
+      <material name="gray">
+        <color rgba=".2 .2 .2 1" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- Robot base to left wheel joint -->
+  <joint name="base_link_to_left_wheel" type="continuous">
+    <parent link="base_link"/>
+    <child link="left_wheel"/>
+    <origin xyz="0.0 0.195 0" rpy="${-PI/2} 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+  <!-- Right wheel link -->
+  <link name="right_wheel">
+    <visual>
+      <origin xyz="0 0 0" rpy="0 0 0" />
+      <geometry>
+        <cylinder radius="0.055" length="0.048" />
+      </geometry>
+      <material name="gray">
+        <color rgba=".2 .2 .2 1" />
+      </material>
+    </visual>
+  </link>
+
+  <!-- Robot base to right wheel joint -->
+  <joint name="base_link_to_right_wheel" type="continuous">
+    <parent link="base_link"/>
+    <child link="right_wheel"/>
+    <origin xyz="0.0 -0.195 0" rpy="${-PI/2} 0 0"/>
+    <axis xyz="0 0 1"/>
+  </joint>
+
+</robot>
