@@ -4,9 +4,6 @@
   <!-- Properties -->
   <xacro:property name="PI" value="3.1415926535897931"/>
 
-  <!-- Base footprint -->
-  <link name="base_footprint"/>
-
   <!-- Robot base link with mesh -->
   <link name="base_link">
     <visual>
@@ -20,12 +17,6 @@
     </visual>
   </link>
 
-  <!-- Base footprint to base link joint -->
-  <joint name="base_footprint_to_base_link" type="fixed">
-    <parent link="base_footprint"/>
-    <child link="base_link"/>
-    <origin xyz="0.129 0 0.055" rpy="0 0 0"/>
-  </joint>
 
   <!-- Left wheel link -->
   <link name="left_wheel">
