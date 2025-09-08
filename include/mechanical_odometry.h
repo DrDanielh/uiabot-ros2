@@ -9,7 +9,6 @@
 #include <string>
 #include <vector>
 #include "rclcpp/rclcpp.hpp"
-#include "sensor_msgs/msg/joint_state.hpp"
 #include "std_msgs/msg/float32.hpp"
 #include "nav_msgs/msg/odometry.hpp"
 #include "tf2/LinearMath/Quaternion.h"
@@ -34,7 +33,6 @@ class MechanicalOdometry : public rclcpp::Node {
 
     /*! \brief Calculate forward kinematics.
     *
-    * TODO(martin): detailed description.
     * 
     * @param axis0_vel Angular velocity of axis0
     * @param axis1_vel Angular velocity of axis1
@@ -50,39 +48,29 @@ class MechanicalOdometry : public rclcpp::Node {
 
     /*! \brief Publish mechanical odometry.
     *
-    * TODO(martin): detailed description.
     */
     void PublishOdometry();
 
     /*! \brief Publish static transform to tf.
      *
-     * TODO(martin): detailed description.
      */
     void PublishStaticTf();
     
     /*! \brief Publish transform to tf.
     *
-    * TODO(martin): detailed description.
     */
     void PublishTf();
 
-    /*! \brief Publish joint states to robot state publisher.
-    *
-    * TODO(martin): detailed description.
-    */
-    void PublishJointStates();
 
     // Callback methods
 
     /*! \brief Axis 0 angular velocity callback.
     *
-    * TODO(martin): detailed description.
     */
     void Axis0VelCallback_(const std_msgs::msg::Float32::SharedPtr msg);
     
     /*! \brief Axis 1 angular velocity callback.
     *
-    * TODO(martin): detailed description.
     */
     void Axis1VelCallback_(const std_msgs::msg::Float32::SharedPtr msg);
 
@@ -108,17 +96,15 @@ class MechanicalOdometry : public rclcpp::Node {
 
     // Frames
     std::string odom_frame_ = "odom";
-    std::string robot_frame_ = "base_link";
+    std::string robot_frame_ = "base_footprint";
 
     // Topics
     std::string odometry_topic_ = "mechanical_odometry";
-    std::string joint_state_topic_ = "joint_states";
     std::string axis0_vel_topic_ = "axis0/vel";
     std::string axis1_vel_topic_ = "axis1/vel";
 
     // Publishers and subscribers
     rclcpp::Publisher<nav_msgs::msg::Odometry>::SharedPtr odometry_publisher_;
-    rclcpp::Publisher<sensor_msgs::msg::JointState>::SharedPtr joint_state_publisher_;
     rclcpp::Subscription<std_msgs::msg::Float32>::SharedPtr axis0_vel_subscriber_;
     rclcpp::Subscription<std_msgs::msg::Float32>::SharedPtr axis1_vel_subscriber_;
 

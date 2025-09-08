@@ -23,7 +23,7 @@ class ImuTfViz : public rclcpp::Node {
     std::string imu_data_topic_ = "bno055/data";
     
     // Tf frames
-    std::string parent_frame_ = "world";
+    std::string parent_frame_ = "bno055";
     std::string child_frame_ = "imu";
 
     // Imu subscribers

@@ -8,7 +8,6 @@
 MechanicalOdometry::MechanicalOdometry() : Node("mechanical_odometry") {
   RCLCPP_INFO(this->get_logger(), "Instantiated mechanical_odometry node.");
   odometry_publisher_ = this->create_publisher<nav_msgs::msg::Odometry>(odometry_topic_, 10);
-  joint_state_publisher_ = this->create_publisher<sensor_msgs::msg::JointState>(joint_state_topic_, 10);
   axis0_vel_subscriber_ = this->create_subscription<std_msgs::msg::Float32>(axis0_vel_topic_,
                                                                             10,
                                                                             std::bind(&MechanicalOdometry::Axis0VelCallback_,
@@ -49,7 +48,6 @@ void MechanicalOdometry::Update_() {
   robot_state_dot_.y = robot_local_state_dot_.x*sin(robot_state_.theta);
 
   // Integrate global cartesian velocity
-  // TODO(martin): integration method may be improved
   robot_state_.x = robot_state_.x + robot_state_dot_.x*update_time_s_;
   robot_state_.y = robot_state_.y + robot_state_dot_.y*update_time_s_;
   
@@ -62,8 +60,6 @@ void MechanicalOdometry::Update_() {
     PublishTf();
   }
 
-  // Publish joint states
-  PublishJointStates();
 
   // Publish odometry
   PublishOdometry();
@@ -113,17 +109,6 @@ void MechanicalOdometry::PublishTf() {
   robot_tf_broadcaster_->sendTransform(transform_stamped_msg_);
 }
 
-void MechanicalOdometry::PublishJointStates() {
-  // Convert axis position to wheel position
-  float left_wheel_pos = axis0_pos_/gear_ratio_;
-  float right_wheel_pos = axis1_pos_/gear_ratio_;
-
-  sensor_msgs::msg::JointState joint_state_msg;
-  joint_state_msg.header.stamp = this->get_clock()->now();
-  joint_state_msg.name = {"base_link_to_left_wheel", "base_link_to_right_wheel"};
-  joint_state_msg.position = {left_wheel_pos, right_wheel_pos};
-  joint_state_publisher_->publish(joint_state_msg);
-}
 
 void MechanicalOdometry::Axis0VelCallback_(const std_msgs::msg::Float32::SharedPtr msg) {
   axis0_vel_ = -msg->data;

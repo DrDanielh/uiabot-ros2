@@ -33,7 +33,7 @@ class Control : public rclcpp::Node {
 
     // Vehicle parameters
     double base_width_ = 0.185; // [m]
-    double wheel_radius_ = 0.05; // [m]
+    double wheel_radius_ = 0.055; // [m]
     double gear_ratio = 20;
 
     // State variables

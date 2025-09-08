@@ -1,8 +1,5 @@
-# Dunder Mifflin, Inc.
-# Author: Michel Scott
-
 # System imports
-from distutils.command.config import config
+#from distutils.command.config import config
 import os
 import sys
 import xacro
@@ -15,6 +12,8 @@ from launch.actions import DeclareLaunchArgument, IncludeLaunchDescription
 from launch.launch_description_sources import PythonLaunchDescriptionSource
 from launch_ros.substitutions import FindPackageShare
 from launch_ros.actions import Node
+from launch.substitutions import Command
+from ament_index_python.packages import get_package_share_directory
 
 def generate_launch_description():
     # Parameters
@@ -24,7 +23,7 @@ def generate_launch_description():
     logger = logging.getLogger('launch')
 
     # Uiabot package share
-    uiabot_shared = FindPackageShare('uiabot').find('uiabot') 
+    uiabot_shared = get_package_share_directory('uiabot') 
    
     # Include uiabot executables
     control_node = Node(package='uiabot',
@@ -47,13 +46,13 @@ def generate_launch_description():
                         executable='bno055_i2c_ros2')
 
     # Include EKF node to fuse odometry
-    ekf_params = os.path.join(uiabot_shared, "params/ekf_params.yaml")
+    ekf_params = os.path.join(uiabot_shared, "params","ekf_params.yaml")
     ekf_node = Node(package='robot_localization',
                     namespace=namespace,
                     executable='ekf_node',
                     name='ekf_filter_node',
                     output='screen',
-                    parameters=[os.path.join(uiabot_shared, ekf_params)])
+                    parameters=[ekf_params])  # Added closing parenthesis here
 
     # Include lidar launch description
     rplidar_node = Node(name='rplidar_composition',
@@ -87,8 +86,9 @@ def generate_launch_description():
     robot_state_publisher_node = Node(package='robot_state_publisher',
                                       namespace=namespace,
                                       executable='robot_state_publisher',
-                                      parameters=[{'robot_description': uiabot_urdf.toxml(),
-                                                   'use_sim_time': False}])
+                                      parameters=[{
+        'robot_description': Command(['xacro ', FindPackageShare('uiabot').find('uiabot') + '/urdf/uiabot.urdf.xacro'])
+    }])
     
     # Instantiate launch description
     ld = LaunchDescription()

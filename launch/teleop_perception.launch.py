@@ -1,6 +1,3 @@
-# Dunder Mifflin, Inc.
-# Author: Michel Scott
-
 # System imports
 from distutils.command.config import config
 import os
@@ -30,11 +27,10 @@ def generate_launch_description():
     control_node = Node(package='uiabot',
                         namespace=namespace,
                         executable='control')
-    
-    mechanical_odometry_node = Node(package='uiabot',
-                                    namespace=namespace,
-                                    executable='mechanical_odometry',
-                                    parameters=[{'use_tf': True}])
+
+    wheel_tf_publisher_node = Node(package='uiabot',
+                                   namespace=namespace,
+                                   executable='wheel_tf_publisher')
 
     imu_tf_viz_node = Node(package='uiabot',
                            namespace=namespace,
@@ -49,7 +45,8 @@ def generate_launch_description():
     # Include BNO055 IMU launch description
     bno055_node = Node(package='bno055_i2c_ros2',
                         namespace=namespace,
-                        executable='bno055_i2c_ros2')
+                        executable='bno055_i2c_ros2',
+                        parameters=[{'frame_id': 'bno055'}])  # Set the frame_id explicitly
 
     # Include lidar launch description
     rplidar_node = Node(name='rplidar_composition',
@@ -77,7 +74,7 @@ def generate_launch_description():
 
     # Add nodes to launch description
     ld.add_action(control_node)
-    ld.add_action(mechanical_odometry_node)
+    ld.add_action(wheel_tf_publisher_node)
     ld.add_action(imu_tf_viz_node)
     ld.add_action(odrive_ros2_node)
     ld.add_action(robot_state_publisher_node)
